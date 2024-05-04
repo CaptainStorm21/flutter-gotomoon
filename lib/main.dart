@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gotomoon/pages/home_page.dart';
 
 /*
 I would like to explain what the main function is, and this is basically the
@@ -45,10 +46,8 @@ how our actual application is going to
     return MaterialApp(
       title: 'Go To Moon',
       theme: ThemeData(
-        scaffoldBackgroundColor: Color.fromARGB(255, 0, 53, 78), ),
-      home: const Scaffold(
-       // backgroundColor: Color.fromRGBO(1, 3, 27, 1),
-      ),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 0, 53, 78), ),
+      home: const HomePage(),
     );
   }
 
