@@ -32,7 +32,6 @@ Widget _pageTitle() {
     final Color whiteColorWithOpacity = Colors.white.withBlue(255).withOpacity(.8);
     // Define the color outside of the widget tree
     return Container(
-      color: Colors.deepPurple.withOpacity(0.2),
       child: Text("#GoMoon",
       style: TextStyle(
         color: whiteColorWithOpacity,
