@@ -20,23 +20,25 @@ class HomePage extends StatelessWidget {
     return Scaffold(
         body: SafeArea(
       child: Container(
-          color: Colors.blueGrey.withBlue(255).withOpacity(.1),
+          color: Colors.blue.withGreen(132).withOpacity(.1),
           height: _deviceHeight,
           width: _deviceWidth,
-          padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
+          padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.08),
           child: _pageTitle()),
     ));
   }
 
 Widget _pageTitle() {
-    final Color brownColorWithOpacity = Colors.teal.withOpacity(1.0);
+    final Color whiteColorWithOpacity = Colors.white.withBlue(255).withOpacity(.8);
     // Define the color outside of the widget tree
-    return Text(
-      "#GoMoon",
+    return Container(
+      color: Colors.deepPurple.withOpacity(0.2),
+      child: Text("#GoMoon",
       style: TextStyle(
-        color: brownColorWithOpacity,
+        color: whiteColorWithOpacity,
         fontSize: 40,
         fontWeight: FontWeight.w800,
+      ),
       ),
     );
   }
