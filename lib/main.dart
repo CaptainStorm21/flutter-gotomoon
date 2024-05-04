@@ -47,7 +47,7 @@ how our actual application is going to
       title: 'Go To Moon',
       theme: ThemeData(
         scaffoldBackgroundColor: const Color.fromARGB(255, 0, 53, 78), ),
-      home: const HomePage(),
+      home: HomePage(),
     );
   }
 
