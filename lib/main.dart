@@ -42,9 +42,13 @@ how our actual application is going to
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Go To Moon',
-      home: Scaffold(),
+      theme: ThemeData(
+        scaffoldBackgroundColor: Color.fromARGB(255, 0, 53, 78), ),
+      home: const Scaffold(
+       // backgroundColor: Color.fromRGBO(1, 3, 27, 1),
+      ),
     );
   }
 
