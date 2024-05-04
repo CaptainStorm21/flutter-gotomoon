@@ -19,25 +19,25 @@ class HomePage extends StatelessWidget {
     _deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
         body: SafeArea(
-      child: Container(
-          color: Colors.blue.withGreen(132).withOpacity(.1),
-          height: _deviceHeight,
-          width: _deviceWidth,
-          padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.08),
-          child: _pageTitle()),
-    ));
+            child: Container(
+      color: Colors.blue.withGreen(132).withOpacity(.1),
+      height: _deviceHeight,
+      width: _deviceWidth,
+      padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.08),
+      child: _destinationDropDownWidget(),
+    )));
   }
 
-Widget _pageTitle() {
-    final Color whiteColorWithOpacity = Colors.white.withBlue(255).withOpacity(.8);
+  Widget _pageTitle() {
     // Define the color outside of the widget tree
     return Container(
-      child: Text("#GoMoon",
-      style: TextStyle(
-        color: whiteColorWithOpacity,
-        fontSize: 40,
-        fontWeight: FontWeight.w800,
-      ),
+      child: Text(
+        "#GoMoon",
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 40,
+          fontWeight: FontWeight.w800,
+        ),
       ),
     );
   }
@@ -51,5 +51,22 @@ Widget _pageTitle() {
         ),
       ),
     );
+  }
+
+  Widget _destinationDropDownWidget() {
+    List<DropdownMenuItem<String>> _items = [
+      'James Webster',
+      'Marine Lunarscope',
+    ].map((e) {
+      return DropdownMenuItem(
+        value: e,
+        child: Text(e),
+      );
+    }).toList();
+    return Container(
+        child: DropdownButton(
+      onChanged: (_) {},
+      items: _items,
+    ));
   }
 }
