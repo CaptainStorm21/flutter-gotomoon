@@ -24,20 +24,26 @@ class HomePage extends StatelessWidget {
       height: _deviceHeight,
       width: _deviceWidth,
       padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.08),
-      child: _destinationDropDownWidget(),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _pageTitle(),
+          _destinationDropDownWidget()
+        ],
+      ),
     )));
   }
 
   Widget _pageTitle() {
     // Define the color outside of the widget tree
-    return Container(
-      child: Text(
-        "#GoMoon",
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 40,
-          fontWeight: FontWeight.w800,
-        ),
+    return const Text(
+      "#GoMoon",
+      style: TextStyle(
+        color: Colors.white,
+        fontSize: 40,
+        fontWeight: FontWeight.w800,
       ),
     );
   }
