@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gotomoon/widgets/custom_dropdown_button.dart';
 // ignore_for_file: must_be_immutable
 
 class HomePage extends StatelessWidget {
@@ -28,7 +29,11 @@ class HomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [_pageTitle(), _destinationDropDownWidget()],
+        children: [
+          _pageTitle(), 
+          _destinationDropDownWidget(), 
+          _travellersInformationWidget()
+        ],
       ),
     )));
   }
@@ -57,35 +62,21 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _destinationDropDownWidget() {
-    List<String> _items = [
+    return CustomDropDownButtonClass( 
+      values: const [
       'James Webster',
       'Marine Lunarscope',
-    ];
-    return Container(
-      width: _deviceWidth,
-      padding: EdgeInsets.symmetric(
-        horizontal: _deviceWidth * .05
-      ),
-      decoration: BoxDecoration(
-          color: const Color.fromRGBO(100, 24, 55, 1.0),
-          borderRadius: BorderRadius.circular(10)),
-      child: DropdownButton(
-        value: _items.first,
-        onChanged: (_) {},
-        items: _items.map(
-          (e) {
-            return DropdownMenuItem(
-              value: e,
-              child: Text(e),
-            );
-          },
-        ).toList(),
-        underline: Container(),
-        dropdownColor: Color.fromARGB(255, 10, 0, 34),
-        style: const TextStyle(
-            fontWeight: FontWeight.w300,
-            color: Color.fromARGB(255, 244, 160, 3)),
-      ),
-    );
+    ], width: _deviceWidth);
+
+  }
+
+    Widget _travellersInformationWidget() {
+    return CustomDropDownButtonClass(values: const [
+      '1',
+      '2',
+      '3',
+      '4',
+      '5'
+    ], width: _deviceWidth* 0.45);
   }
 }
