@@ -28,10 +28,7 @@ class HomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _pageTitle(),
-          _destinationDropDownWidget()
-        ],
+        children: [_pageTitle(), _destinationDropDownWidget()],
       ),
     )));
   }
@@ -60,19 +57,35 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _destinationDropDownWidget() {
-    List<DropdownMenuItem<String>> _items = [
+    List<String> _items = [
       'James Webster',
       'Marine Lunarscope',
-    ].map((e) {
-      return DropdownMenuItem(
-        value: e,
-        child: Text(e),
-      );
-    }).toList();
+    ];
     return Container(
-        child: DropdownButton(
-      onChanged: (_) {},
-      items: _items,
-    ));
+      width: _deviceWidth,
+      padding: EdgeInsets.symmetric(
+        horizontal: _deviceWidth * .05
+      ),
+      decoration: BoxDecoration(
+          color: const Color.fromRGBO(100, 24, 55, 1.0),
+          borderRadius: BorderRadius.circular(10)),
+      child: DropdownButton(
+        value: _items.first,
+        onChanged: (_) {},
+        items: _items.map(
+          (e) {
+            return DropdownMenuItem(
+              value: e,
+              child: Text(e),
+            );
+          },
+        ).toList(),
+        underline: Container(),
+        dropdownColor: Color.fromARGB(255, 10, 0, 34),
+        style: const TextStyle(
+            fontWeight: FontWeight.w300,
+            color: Color.fromARGB(255, 244, 160, 3)),
+      ),
+    );
   }
 }
