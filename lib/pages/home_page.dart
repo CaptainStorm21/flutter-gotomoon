@@ -24,15 +24,12 @@ class HomePage extends StatelessWidget {
       color: Colors.blue.withGreen(132).withOpacity(.1),
       height: _deviceHeight,
       width: _deviceWidth,
-      padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
+      padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.02),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _pageTitle(),
-          _bookRideWidget()
-        ],
+        children: [_pageTitle(), _bookRideWidget()],
       ),
     )));
   }
@@ -60,21 +57,20 @@ class HomePage extends StatelessWidget {
     );
   }
 
-Widget _bookRideWidget(){
-  return Container(
-    height: _deviceHeight * .25,
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      mainAxisSize: MainAxisSize.max,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children:  [
-        _destinationDropDownWidget(),
-        _travellersInformationWidget()
-
-      ]
-    ), );
-}
-
+  Widget _bookRideWidget() {
+    return Container(
+      height: _deviceHeight * .25,
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            _destinationDropDownWidget(),
+            _travellersInformationWidget(),
+            _riderButton()
+          ]),
+    );
+  }
 
   Widget _destinationDropDownWidget() {
     return CustomDropDownButtonClass(values: const [
@@ -85,18 +81,38 @@ Widget _bookRideWidget(){
 
   Widget _travellersInformationWidget() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      mainAxisSize: MainAxisSize.max,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-      CustomDropDownButtonClass(
-        values: const ['1', '2', '3', '4', '5'],
-        width: _deviceWidth * 0.45,
-      ),
-      CustomDropDownButtonClass(
-        values: const ['economy', 'luxury', 'business'],
-        width: _deviceWidth * 0.40,
-      ),
-    ]);
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CustomDropDownButtonClass(
+            values: const ['1', '2', '3', '4', '5'],
+            width: _deviceWidth * 0.45,
+          ),
+          CustomDropDownButtonClass(
+            values: const ['economy', 'luxury', 'business'],
+            width: _deviceWidth * 0.40,
+          ),
+        ]);
+  }
+
+  Widget _riderButton() {
+    return Container(
+        width: _deviceWidth,
+        margin: EdgeInsets.only(bottom: _deviceHeight * 0.01, ),
+        decoration: BoxDecoration(
+          color: Colors.grey,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: MaterialButton(
+          onPressed: () {},
+          child: const Text("Book a Ride",
+          style: TextStyle(
+            color: Color.fromRGBO(0, 0, 0, 1)
+          )
+          
+          ),
+          
+        ));
   }
 }
