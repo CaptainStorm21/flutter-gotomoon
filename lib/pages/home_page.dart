@@ -24,15 +24,14 @@ class HomePage extends StatelessWidget {
       color: Colors.blue.withGreen(132).withOpacity(.1),
       height: _deviceHeight,
       width: _deviceWidth,
-      padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.08),
+      padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _pageTitle(), 
-          _destinationDropDownWidget(), 
-          _travellersInformationWidget()
+          _pageTitle(),
+          _bookRideWidget()
         ],
       ),
     )));
@@ -61,22 +60,43 @@ class HomePage extends StatelessWidget {
     );
   }
 
+Widget _bookRideWidget(){
+  return Container(
+    height: _deviceHeight * .25,
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children:  [
+        _destinationDropDownWidget(),
+        _travellersInformationWidget()
+
+      ]
+    ), );
+}
+
+
   Widget _destinationDropDownWidget() {
-    return CustomDropDownButtonClass( 
-      values: const [
+    return CustomDropDownButtonClass(values: const [
       'James Webster',
       'Marine Lunarscope',
     ], width: _deviceWidth);
-
   }
 
-    Widget _travellersInformationWidget() {
-    return CustomDropDownButtonClass(values: const [
-      '1',
-      '2',
-      '3',
-      '4',
-      '5'
-    ], width: _deviceWidth* 0.45);
+  Widget _travellersInformationWidget() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+      CustomDropDownButtonClass(
+        values: const ['1', '2', '3', '4', '5'],
+        width: _deviceWidth * 0.45,
+      ),
+      CustomDropDownButtonClass(
+        values: const ['economy', 'luxury', 'business'],
+        width: _deviceWidth * 0.40,
+      ),
+    ]);
   }
 }
