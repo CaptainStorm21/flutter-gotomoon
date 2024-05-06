@@ -24,12 +24,17 @@ class HomePage extends StatelessWidget {
       color: Colors.blue.withGreen(132).withOpacity(.1),
       height: _deviceHeight,
       width: _deviceWidth,
-      padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.02),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [_pageTitle(), _bookRideWidget()],
+      padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.00),
+      child: Stack(
+        children: [
+          _astroImageWidget(),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [_pageTitle(), _bookRideWidget()],
+          ),
+        ],
       ),
     )));
   }
@@ -59,7 +64,7 @@ class HomePage extends StatelessWidget {
 
   Widget _bookRideWidget() {
     return Container(
-      height: _deviceHeight * .25,
+      height: _deviceHeight * .23,
       child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.max,
@@ -99,7 +104,9 @@ class HomePage extends StatelessWidget {
   Widget _riderButton() {
     return Container(
         width: _deviceWidth,
-        margin: EdgeInsets.only(bottom: _deviceHeight * 0.01, ),
+        margin: EdgeInsets.only(
+          bottom: _deviceHeight * 0.02,
+        ),
         decoration: BoxDecoration(
           color: Colors.grey,
           borderRadius: BorderRadius.circular(10),
@@ -107,12 +114,7 @@ class HomePage extends StatelessWidget {
         child: MaterialButton(
           onPressed: () {},
           child: const Text("Book a Ride",
-          style: TextStyle(
-            color: Color.fromRGBO(0, 0, 0, 1)
-          )
-          
-          ),
-          
+              style: TextStyle(color: Color.fromRGBO(0, 0, 0, 1))),
         ));
   }
 }
